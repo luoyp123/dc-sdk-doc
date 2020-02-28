@@ -1,0 +1,15 @@
+{
+  "name": "dc-sdk-doc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Digital-Visual/dc-sdk-doc.git",
+  "author": "Caven <374903123@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev src",
+    "docs:build": "vuepress build src"
+  },
+  "devDependencies": {
+    "vuepress": "^1.3.1"
+  }
+}

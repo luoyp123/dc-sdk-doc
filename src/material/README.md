@@ -1,0 +1,5 @@
+---
+sidebar: auto
+---
+
+# Material API ✍
