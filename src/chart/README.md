@@ -11,11 +11,15 @@ sidebar: auto
 ## 开始
 
 ```html
-<script src="**/libs/dc-sdk/dc.core.min.js"></script>
-<script src="**/libs/echart/echart.min.js"></script>
-<script src="**/libs/dc-chart/dc.chart.min.js"></script>
-<link href="**/libs/dc-sdk/dc.core.min.css" />
+<script src="***/echarts.min.js"></script>
+<script src="libs/dc-sdk/dc.core.min.js"></script>
+<script src="***/dc.chart.min.js"></script>
+<link href="/libs/dc-sdk/dc.core.min.css" />
 ```
+
+:::danger
+JS 包的导入顺序不能随便， echarts/dc.core > dc.chart
+:::
 
 ## DC.Chart
 
@@ -42,6 +46,7 @@ viewer.use(chart)
 ```json
 // 配置参数，其他的参数参考 echarts
 {
+  "animation": false, // 必须要加
   "GLMap": {}, //地图
   "series": [
     {
@@ -52,3 +57,14 @@ viewer.use(chart)
 ```
 
 ## 图表示例
+
+| ![图片](https://raw.githubusercontent.com/Digital-Visual/dc-sdk-examples/master/images/datav/e_pm2.5.png) | ![图片](https://raw.githubusercontent.com/Digital-Visual/dc-sdk-examples/master/images/datav/e_pm2.5_2.png) | ![图片](https://raw.githubusercontent.com/Digital-Visual/dc-sdk-examples/master/images/datav/e_plane.gif) | ![图片](https://raw.githubusercontent.com/Digital-Visual/dc-sdk-examples/master/images/datav/e_airline.gif) |
+| :-------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------: |
+|  ![图片](https://raw.githubusercontent.com/Digital-Visual/dc-sdk-examples/master/images/datav/e_rk.gif)   |   ![图片](https://raw.githubusercontent.com/Digital-Visual/dc-sdk-examples/master/images/datav/e_qx.gif)    |  ![图片](https://raw.githubusercontent.com/Digital-Visual/dc-sdk-examples/master/images/datav/e_wl.gif)   |                                                                                                             |
+
+<style>
+ img{
+   width:200px;
+   height:200px;
+ }
+</style>

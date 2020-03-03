@@ -61,9 +61,9 @@ KML/CZML 是一个 JSON 格式的数据,描述 time-dynamic（时间、动态）
 ## 开始
 
 ```html
-<script src="**/libs/dc-sdk/dc.core.min.js"></script>
-<script src="**/libs/dc-sdk/plugins/dc.plugins.min.js"></script>
-<link href="**/libs/dc-sdk/dc.core.min.css" />
+<script src="libs/dc-sdk/dc.core.min.js"></script>
+<script src="libs/dc-sdk/plugins/dc.plugins.min.js"></script>
+<link href=libs/dc-sdk/dc.core.min.css" />
 ```
 
 ```js
@@ -72,11 +72,15 @@ DC.ready(() => {
 })
 ```
 
+:::danger
+请将 JS 包放置项目根目录的 libs 下，如果放置到其他文件夹下，框架将无法正常运行
+:::
+
 ## 常量
 
 > 框架内部默认常量
 
-::: warning
+::: danger
 开发时请使用默认常量进行开发，使用其他可能无法正常运行。
 :::
 
@@ -178,8 +182,12 @@ DC.ready(() => {
 
 ```js
 let viewer = DC.Viewer('map-contaienr')
-global.viewer = viewer
+global.viewer = viewer // 添加到全局变量
 ```
+
+:::warning
+如果开发使用的是 Vue 这样的 MVVM 框架，不要将 viewer、layer、overlay 添加到数据模型中。由于 3D 场景中会不停的刷新每一帧，如果将数据添加到数据模型中，长时间的话会导致浏览器的压力增大而奔溃。
+:::
 
 ### creation
 
@@ -193,7 +201,7 @@ global.viewer = viewer
   - 返回值：`viewer`
 
   ```json
-  //属性参数
+  //属性参数（可选）
   {
     "contextOptions": {
       "webgl": {
@@ -214,7 +222,7 @@ global.viewer = viewer
 
 ### properties
 
-- `{Element} dcContainer`：框架自定容器 **_`readonly`_**
+- `{Element} dcContainer`：框架自定义容器 **_`readonly`_**
 - `{Object} scene`：场景 **_`readonly`_**，详情参考：[Scene](https://cesium.com/docs/cesiumjs-ref-doc/Scene.html)
 - `{Object} camera`：相机 **_`readonly`_**，详情参考：[Camera](https://cesium.com/docs/cesiumjs-ref-doc/Scene.html)
 - `{Element} canvas`：canvas 节点 **_`readonly`_**
@@ -222,6 +230,7 @@ global.viewer = viewer
 - [`{Popup} popup`](#popup)：气泡窗口 **_`readonly`_**
 - [`{ContextMenu} contextMenu`](#contextmenu)：右击弹框 **_`readonly`_**
 - [`{Tooltip} tooltip`](#tooltip)：提示框 **_`readonly`_**
+- `{DC.Position} cameraPosition`：相机位置 **_`readonly`_**
 
 ### methods
 
@@ -423,7 +432,16 @@ popup.setContent('<div></div>')
 
 - `{Boolean} enable`：是否启用
 - `{String} state`：状态 **_`readonly`_**
-- `{Object}} config`：配置 **_`writeonly`_**
+- `{Object} config`：配置 **_`writeonly`_**
+
+```json
+// 配置参数（可选）
+// 配置后会影响全局的popup的显示样式，请慎重。
+{
+  "position": "center", // popup的位于鼠标的点击位置的方向,有：center，left ，right
+  "customClass": "custom" // 添加自定义的Css 类名到popup中，多个用空格隔开
+}
+```
 
 ### methods
 
