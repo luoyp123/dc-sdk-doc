@@ -56,7 +56,7 @@ KML/CZML 是一个 JSON 格式的数据,描述 time-dynamic（时间、动态）
 
 **`Cesium`**
 
-[Cesium](https://cesium.com/cesiumjs/) 是一款面向三维 GIS 的世界级的 ES6 的开源产品。该产品方便个人或者团队快速搭建一款无插件的三维 GIS 的 Web 应用， 在性能、精度、渲染质量、跨平台上都有很好的保证。开发时如果需要 Cesium 的内部接口可以通过 DC.getNamesapce().Cesium 获取 Cesium 命名空间。
+[Cesium](https://cesium.com/cesiumjs/) 是一款面向三维 GIS 的世界级的 ES6 的开源产品。该产品方便个人或者团队快速搭建一款无插件的三维 GIS 的 Web 应用， 在性能、精度、渲染质量、跨平台上都有很好的保证。开发时如果需要 Cesium 的内部接口可以通过 **`DC.getNamesapce().Cesium`** 获取 Cesium 命名空间。
 
 [Cesium Api](https://cesium.com/docs/cesiumjs-ref-doc/)
 
@@ -573,6 +573,22 @@ let baselayer_elc = DC.ImageryLayerFactorycreateGoogleImageryLayer()
 viewer._mapSplit.enable = true
 viewer._mapSplit.addBaseLayer(baselayer_elc, -1)
 ```
+
+### properties
+
+- `{Boolean} enable`：是否启用
+- `{String} state`：状态 **_`readonly`_**
+
+### methods
+
+- **_addBaseLayer(baseLayer,splitDirection)_**
+
+  添加地图
+
+  - 参数
+    - `{BaseLayer} baseLayer`：地图
+    - `{Number} splitDirection`：分割方向，-1：左，0：无，1：右
+  - 返回值：`this`
 
 ## DC.ImageryLayerFactory
 
