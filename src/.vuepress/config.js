@@ -4,6 +4,7 @@ module.exports = {
   description: 'An JavaScript Library For 2D & 3D Gis',
   themeConfig: {
     nav: [
+      { text: 'Guide', link: '/guide/' },
       { text: 'API', link: '/api/' },
       { text: 'Material API', link: '/material/' },
       { text: 'Chart API', link: '/chart/' },

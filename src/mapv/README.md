@@ -13,15 +13,17 @@ sidebar: auto
 ```html
 <script src="libs/dc-sdk/dc.core.min.js"></script>
 <script src="***/dc.mapv.min.js"></script>
-<script src="libs/dc-sdk/plugins/dc.chart.plugins.js"></script>
+<script src="libs/dc-sdk/plugins/dc.plugins.js"></script>
+<script src="***/gs.core.min.js"></script>
 <link href="libs/dc-sdk/dc.core.min.css" />
+<link href="***/gs/gs.core.min.css" />
 ```
 
 :::danger
-JS 包的导入顺序不能随便， dc.core > dc.mapv > dc.plugins
+JS 包的导入顺序不能随便， dc.core > dc.mapv > dc.plugins > gs.core
 :::
 
-## DC.MapvDataSet
+## GS.GaeaMapvDataSet
 
 ### example
 
@@ -48,14 +50,14 @@ for (let key in geoCoordMap) {
   })
 }
 
-let dataset = new DC.MapvDataSet(data)
+let dataset = new GS.GaeaMapvDataSet(data)
 ```
 
 ### creation
 
 - **_constructor(data)_**
 
-  DC.MapvDataSet 构造函数
+  GS.MapvDataSet 构造函数
 
   - 参数
     - `{Array<Object>} data`：数据数组，详情参考：[DataSet](https://github.com/huiyan-fe/mapv/blob/master/src/data/DataSet.md)
@@ -73,7 +75,7 @@ let dataset = new DC.MapvDataSet(data)
 }
 ```
 
-## DC.MapvLayer
+## GS.GaeaMapvLayer
 
 > 数据可视化图层，继承于[Layer](#layer)
 
@@ -107,7 +109,7 @@ let options = {
   },
   draw: 'grid'
 }
-let layer = new DC.VectorLayer('layer', options)
+let layer = new GS.GaeaMapvLayer('layer', options)
 viewer.addLayer(layer)
 ```
 
@@ -115,7 +117,7 @@ viewer.addLayer(layer)
 
 - **_constructor(id,options)_**
 
-  DC.MapvLayer 构造函数
+  GS.MapvLayer 构造函数
 
   - 参数
     - `{Stiring} id`：图层唯一标识

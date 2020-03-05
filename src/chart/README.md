@@ -6,7 +6,7 @@ sidebar: auto
 
 ## 简介
 
-> DC-Chart 是 DC-SDK 与 Echart 融合的产品。主要用于在 3D 场景中添加 echart 的统计图表。将统计图表 Gis 化
+> GS-Chart 是 Gspace 与 Echart 融合的产品。主要用于在 3D 场景中添加 echart 的统计图表。将统计图表 Gis 化
 
 ## 开始
 
@@ -14,21 +14,23 @@ sidebar: auto
 <script src="***/echarts.min.js"></script>
 <script src="libs/dc-sdk/dc.core.min.js"></script>
 <script src="***/dc.chart.min.js"></script>
+<script src="**/gs.core.min.js"></script>
 <link href="/libs/dc-sdk/dc.core.min.css" />
+<link href="**/gs/gs.core.min.css" />
 ```
 
 :::danger
 JS 包的导入顺序不能随便， echarts/dc.core > dc.chart
 :::
 
-## DC.Chart
+## GS.GaeaChart
 
 > 图表类
 
 ### example
 
 ```js
-let chart = new DC.Chart('test')
+let chart = new GS.GaeaChart('test')
 viewer.use(chart)
 ```
 

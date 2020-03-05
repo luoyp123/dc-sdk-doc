@@ -46,29 +46,28 @@ GeoJSON 是一种对各种地理数据结构进行编码的格式，基于 Javas
 
 KML/CZML 是一个 JSON 格式的数据,描述 time-dynamic（时间、动态）图形场景,它描述了线、点、广告牌(标记)、模型、和其他图形原语,并指定他们如何随时间变化。
 
+<img src="https://raw.githubusercontent.com/Digital-Visual/dc-sdk/master/data_transform.png" style="width:100%;height:400px">
+
 ### Namespace
 
-**`DC`**
+**`GS`**
 
-框架使用 DC 为命名空间，开发时尽量不要使用 DC 为变量名或者命名空间，避免框架无法正常使用。
-
-**`Cesium`**
-
-[Cesium](http://cesiumjs.org/) 是一款面向三维 GIS 的世界级的 ES6 的开源产品。该产品方便个人或者团队快速搭建一款无插件的三维 GIS 的 Web 应用， 在性能、精度、渲染质量、跨平台上都有很好的保证。开发时如果需要 Cesium 的内部接口可以通过 **`DC.getNamesapce().Cesium`** 获取 Cesium 命名空间。
-
-[Cesium Api](https://cesium.com/docs/cesiumjs-ref-doc/)
+框架使用 GS 为命名空间，开发时尽量不要使用 GS 为变量名或者命名空间，避免框架无法正常使用。
 
 ## 开始
 
 ```html
 <script src="libs/dc-sdk/dc.core.min.js"></script>
 <script src="libs/dc-sdk/plugins/dc.plugins.min.js"></script>
-<link href=libs/dc-sdk/dc.core.min.css" />
+<script src="***/gs.core.min.js"></script>
+<link href="libs/dc-sdk/gs.core.min.css" />
+<link href="***/gs.core.min.css" />
 ```
 
 ```js
-DC.ready(() => {
-  let viewer = new DC.Viewer(divId)
+GS.Config.license = '' //申请的license
+GS.ready(() => {
+  let viewer = new GS.Viewer(divId)
 })
 ```
 
@@ -86,91 +85,95 @@ DC.ready(() => {
 
 ### MouseEventType
 
-**_`DC.MouseEventType.CLICK`_**: 鼠标点击事件
+**_`GS.MouseEventType.CLICK`_**: 鼠标点击事件
 
-**_`DC.MouseEventType.RIGHT_CLICK`_**: 鼠标右击事件
+**_`GS.MouseEventType.RIGHT_CLICK`_**: 鼠标右击事件
 
-**_`DC.MouseEventType.DB_CLICK`_**: 鼠标双击事件
+**_`GS.MouseEventType.DB_CLICK`_**: 鼠标双击事件
 
-**_`DC.MouseEventType.MOUSE_MOVE`_**: 鼠标移动事件
+**_`GS.MouseEventType.MOUSE_MOVE`_**: 鼠标移动事件
 
-**_`DC.MouseEventType.WHEEL`_**: 鼠标滚轮事件
+**_`GS.MouseEventType.WHEEL`_**: 鼠标滚轮事件
 
-**_`DC.MouseEventType.MOUSE_OVER`_**: 鼠标移入事件
+**_`GS.MouseEventType.MOUSE_OVER`_**: 鼠标移入事件
 
-**_`DC.MouseEventType.MOUSE_OUT`_**: 鼠标移出事件
+**_`GS.MouseEventType.MOUSE_OUT`_**: 鼠标移出事件
 
 ### SceneEventType
 
-**_`DC.SceneEventType.CAMERA_MOVE_END`_**: 相机移动完成
+**_`GS.SceneEventType.CAMERA_MOVE_END`_**: 相机移动完成
 
-**_`DC.SceneEventType.CAMERA_CHANGED`_**: 相机位置完成
+**_`GS.SceneEventType.CAMERA_CHANGED`_**: 相机位置完成
 
-**_`DC.SceneEventType.PRE_RENDER`_**: 场景渲染前
+**_`GS.SceneEventType.PRE_RENDER`_**: 场景渲染前
 
-**_`DC.SceneEventType.POST_RENDER`_**: 场景渲染后
+**_`GS.SceneEventType.POST_RENDER`_**: 场景渲染后
 
-**_`DC.SceneEventType.MORPH_COMPLETE`_**: 场景模式变换完成
+**_`GS.SceneEventType.MORPH_COMPLETE`_**: 场景模式变换完成
 
-**_`DC.SceneEventType.CLOCK_TICK`_**: 时钟跳动
+**_`GS.SceneEventType.CLOCK_TICK`_**: 时钟跳动
 
 ### LayerType
 
-**_`DC.LayerType.VECTOR`_**: 矢量图层
+**_`GS.LayerType.VECTOR`_**: 矢量图层
 
-**_`DC.LayerType.TILESET`_**: 3dtiles 图层
+**_`GS.LayerType.TILESET`_**: 3dtiles 图层
 
-**_`DC.LayerType.CLUSTER`_**: 聚合图层
+**_`GS.LayerType.CLUSTER`_**: 聚合图层
 
-**_`DC.LayerType.GEOJSON`_**: GeoJson 图层
+**_`GS.LayerType.GEOJSON`_**: GeoJson 图层
 
-**_`DC.LayerType.KML`_**: kml 图层
+**_`GS.LayerType.KML`_**: kml 图层
 
-**_`DC.LayerType.CZML`_**: czml 图层
+**_`GS.LayerType.CZML`_**: czml 图层
 
-**_`DC.LayerType.HTML`_**: html 图层
+**_`GS.LayerType.HTML`_**: html 图层
 
-**_`DC.LayerType.HEAT`_**: 热区图层
+**_`GS.LayerType.HEAT`_**: 热区图层
 
-**_`DC.LayerType.MAPV`_**: Mapv 图层
+**_`GS.LayerType.MAPV`_**: Mapv 图层
 
 ### OverlayType
 
-**_`DC.OverlayType.POINT`_**: 点
+**_`GS.OverlayType.POINT`_**: 点
 
-**_`DC.OverlayType.POLYLINE`_**: 线
+**_`GS.OverlayType.POLYLINE`_**: 线
 
-**_`DC.OverlayType.POLYGON`_**: 面
+**_`GS.OverlayType.POLYGON`_**: 面
 
-**_`DC.OverlayType.MODEL`_**: 模型
+**_`GS.OverlayType.MODEL`_**: 模型
 
-**_`DC.OverlayType.BILLBOARD`_**: 图标点
+**_`GS.OverlayType.BILLBOARD`_**: 图标点
 
-**_`DC.OverlayType.CIRCLE`_**: 圆
+**_`GS.OverlayType.CIRCLE`_**: 圆
 
-**_`DC.OverlayType.RECT`_**: 矩形
+**_`GS.OverlayType.RECT`_**: 矩形
 
-**_`DC.OverlayType.LABEL`_**: 标签
+**_`GS.OverlayType.LABEL`_**: 标签
 
-**_`DC.OverlayType.PLANE`_**: 面板
+**_`GS.OverlayType.PLANE`_**: 面板
 
-**_`DC.OverlayType.WALL`_**: 墙体
+**_`GS.OverlayType.WALL`_**: 墙体
 
 ### EffectType
 
-**_`DC.EffectType.RAIN`_**: 雨
+**_`GS.EffectType.RAIN`_**: 雨
 
-**_`DC.EffectType.SNOW`_**: 雪
+**_`GS.EffectType.SNOW`_**: 雪
 
-**_`DC.EffectType.FOG`_**: 雾
+**_`GS.EffectType.FOG`_**: 雾
 
-**_`DC.EffectType.BLOOM`_**: 泛光
+**_`GS.EffectType.BLOOM`_**: 泛光
 
-**_`DC.EffectType.CIRCLE_SCAN`_**: 扫描圈
+**_`GS.EffectType.CIRCLE_SCAN`_**: 扫描圈
 
-**_`DC.EffectType.RADAR_SCAN`_**: 雷达扫描
+**_`GS.EffectType.RADAR_SCAN`_**: 雷达扫描
 
-## DC.Viewer
+## GS.World
+
+> 等同 GS.Viewer，后期不要用，会舍弃
+
+## GS.Viewer
 
 > 3D 场景
 
@@ -181,7 +184,7 @@ DC.ready(() => {
 ```
 
 ```js
-let viewer = DC.Viewer('map-contaienr')
+let viewer = GS.Viewer('map-contaienr')
 global.viewer = viewer // 添加到全局变量
 ```
 
@@ -193,7 +196,7 @@ global.viewer = viewer // 添加到全局变量
 
 - **_constructor(id,options)_**
 
-  DC.Viewer 构造函数
+  GS.Viewer 构造函数
 
   - 参数
     - `{Stiring} id`：容器 ID
@@ -230,7 +233,7 @@ global.viewer = viewer // 添加到全局变量
 - [`{Popup} popup`](#popup)：气泡窗口 **_`readonly`_**
 - [`{ContextMenu} contextMenu`](#contextmenu)：右击弹框 **_`readonly`_**
 - [`{Tooltip} tooltip`](#tooltip)：提示框 **_`readonly`_**
-- `{DC.Position} cameraPosition`：相机位置 **_`readonly`_**
+- `{GS.Position} cameraPosition`：相机位置 **_`readonly`_**
 
 ### methods
 
@@ -291,10 +294,26 @@ global.viewer = viewer // 添加到全局变量
 
 - **_changeBaseLayer(index)_**
 
-  添加地图图层
+  更改地图
 
   - 参数
     - `{Number} index`：地图索引
+  - 返回值：`this`
+
+- **_addTerrain(terrain)_**
+
+  添加地形
+
+  - 参数
+    - `{Terrain} terrain`：地形
+  - 返回值：`this`
+
+- **_changeTerrain(index)_**
+
+  变换地形
+
+  - 参数
+    - `{Number} index`：地形索引
   - 返回值：`this`
 
 - **_addLayer(layer)_**
@@ -361,7 +380,7 @@ global.viewer = viewer // 添加到全局变量
   飞向目标
 
   - 参数
-    - `{DC.Vectolayer|Overlay} target` ：目标
+    - `{GS.Vectolayer|Overlay} target` ：目标
   - 返回值：`this`
 
 - **_zoomTo(target)_**
@@ -369,7 +388,7 @@ global.viewer = viewer // 添加到全局变量
   缩放到目标
 
   - 参数
-    - `{DC.Vectolayer|Overlay} target` ：目标
+    - `{GS.Vectolayer|Overlay} target` ：目标
   - 返回值：`this`
 
 - **_flyToPosition(position, completeCallback, duration)_**
@@ -377,7 +396,7 @@ global.viewer = viewer // 添加到全局变量
   飞到具体位置
 
   - 参数
-    - `{DC.Position} position`：位置
+    - `{GS.Position} position`：位置
     - `{Function} completeCallback`：飞完之后触发的回调
     - `{Number} duration`：飞到位置时间，单位：秒
   - 返回值：`this`
@@ -525,14 +544,14 @@ tooltip.setContent('测试')
     - `{String|Element} content`：内容
   - 返回值：`this`
 
-## DC.ImageryLayerFactory
+## GS.ImageryLayerFactory
 
 > 地图工厂
 
 ### example
 
 ```js
-let baseLayer = DC.ImageryLayerFactory.createAmapImageryLayer({
+let baseLayer = GS.ImageryLayerFactory.createAmapImageryLayer({
   style: 'img'
 })
 viewer.addBaseLayer(baseLayer, {
@@ -623,6 +642,14 @@ viewer.addBaseLayer(baseLayer, {
     - `{Object} options`：属性
   - 返回值：`baseLayer`
 
+- **_createCaeaImageryLayer(options)_**
+
+  创建数图地图
+
+  - 参数
+    - `{Object} options`：属性
+  - 返回值：`baseLayer`
+
   ```json
   //属性参数(可选)
   {
@@ -632,6 +659,66 @@ viewer.addBaseLayer(baseLayer, {
     "subdomains": []
   }
   ```
+
+## GS.TerrainFactory
+
+> 地形工厂
+
+### example
+
+```js
+let terrain = GS.ImageryLayerFactory.createUrlTerrain({
+  url: '****/***'
+})
+viewer.addTerrain(terrain)
+```
+
+### static methods
+
+- **_createEllipsoidTerrain()_**
+
+  创建默认地形
+
+  - 返回值：`terrain`
+
+- **_createUrlTerrain(options)_**
+
+  根据 url 创建地形
+
+  - 参数
+    - `{Object} options`：属性
+  - 返回值：`terrain`
+
+- **_createGoogleTerrain(options)_**
+
+  创建谷歌地形
+
+  - 参数
+    - `{Object} options`：属性
+  - 返回值：`terrain`
+
+- **_createArcgisTerrain(options)_**
+
+  创建 Arcgis 地形
+
+  - 参数
+    - `{Object} options`：属性
+  - 返回值：`terrain`
+
+- **_createVRTerrain(options)_**
+
+  创建 VR 地形
+
+  - 参数
+    - `{Object} options`：属性
+  - 返回值：`terrain`
+
+```json
+//属性参数（可选）
+{
+  "url": "" // 服务地址
+}
+```
 
 ## Layer
 
@@ -706,17 +793,17 @@ viewer.addBaseLayer(baseLayer, {
   添加图层到场景
 
   - 参数
-    - `{DC.Viewer} viewer`：场景
+    - `{GS.Viewer} viewer`：场景
   - 返回值：`this`
 
-## DC.VectorLayer
+## GS.VectorLayer
 
 > 矢量图层，继承于[Layer](#layer)
 
 ### example
 
 ```js
-let layer = new DC.VectorLayer('id')
+let layer = new GS.VectorLayer('id')
 viewer.addLayer(layer)
 ```
 
@@ -724,20 +811,20 @@ viewer.addLayer(layer)
 
 - **_constructor(id)_**
 
-  DC.VectorLayer 构造函数
+  GS.VectorLayer 构造函数
 
   - 参数
     - `{Stiring} id`：图层唯一标识
   - 返回值：`vectorLayer`
 
-## DC.TilesetLayer
+## GS.TilesetLayer
 
 > 3dTiles 图层，继承于[Layer](#layer)
 
 ### example
 
 ```js
-let layer = new DC.TilesetLayer('id')
+let layer = new GS.TilesetLayer('id')
 viewer.addLayer(layer)
 ```
 
@@ -745,20 +832,20 @@ viewer.addLayer(layer)
 
 - **_constructor(id)_**
 
-  DC.TilesetLayer 构造函数
+  GS.TilesetLayer 构造函数
 
   - 参数
     - `{Stiring} id`：图层唯一标识
   - 返回值：`tilesetLayer`
 
-## DC.ClusterLayer
+## GS.ClusterLayer
 
 > 聚合图层，继承于[Layer](#layer)
 
 ### example
 
 ```js
-let layer = new DC.ClusterLayer('id')
+let layer = new GS.ClusterLayer('id')
 viewer.addLayer(layer)
 ```
 
@@ -766,7 +853,7 @@ viewer.addLayer(layer)
 
 - **_constructor(id,[options])_**
 
-  DC.ClusterLayer 构造函数
+  GS.ClusterLayer 构造函数
 
   - 参数
     - `{Stiring} id`：图层唯一标识
@@ -799,15 +886,15 @@ viewer.addLayer(layer)
     - `{Array<Overlay>} overlays`：覆盖物数组
   - 返回值：`this`
 
-## DC.HeatmapLayer
+## GS.HeatmapLayer
 
 > 热区图层，继承于[Layer](#layer)
 
 ### example
 
 ```js
-let bounds = [new DC.Position(100, 20), new DC.Position(150, 26)]
-let layer = new DC.HeatmapLayer('id', bound)
+let bounds = [new GS.Position(100, 20), new GS.Position(150, 26)]
+let layer = new GS.HeatmapLayer('id', bound)
 viewer.addLayer(layer)
 ```
 
@@ -815,11 +902,11 @@ viewer.addLayer(layer)
 
 - **_constructor(id,bounds,[options])_**
 
-  DC.HeatmapLayer 构造函数
+  GS.HeatmapLayer 构造函数
 
   - 参数
     - `{Stiring} id`：图层唯一标识
-    - `{Array<DC.Position>} bounds`：热区范围，有长度为 2 的数组组成，第一个为西南坐标，第二个为东北坐标
+    - `{Array<GS.Position>} bounds`：热区范围，有长度为 2 的数组组成，第一个为西南坐标，第二个为东北坐标
     - `{Object} options`：属性配置
   - 返回值：`heatmapLayer`
 
@@ -864,14 +951,14 @@ viewer.addLayer(layer)
 
   ·
 
-## DC.GeoJsonLayer
+## GS.GeoJsonLayer
 
 > GeoJson 图层，继承于[Layer](#layer)，主要要来加载 Geojson 数据
 
 ### example
 
 ```js
-let layer = new DC.GeoJsonLayer('id', '**/**.geojson')
+let layer = new GS.GeoJsonLayer('id', '**/**.geojson')
 layer.eachOverlay(item => {
   if (item.polygline) {
     //todo
@@ -889,7 +976,7 @@ layer.eachOverlay(item => {
 
 - **_constructor(id,url,[options])_**
 
-  DC.GeoJsonLayer 构造函数
+  GS.GeoJsonLayer 构造函数
 
   - 参数
     - `{Stiring} id`：图层唯一标识
@@ -905,14 +992,14 @@ layer.eachOverlay(item => {
 
   - 返回值：`vectorLayer`
 
-## DC.CzmlLayer
+## GS.CzmlLayer
 
 > Czml 图层，继承于[Layer](#layer)，主要要来加载 Czml 数据
 
 ### example
 
 ```js
-let layer = new DC.CzmlLayer('id', '**/**.czml')
+let layer = new GS.CzmlLayer('id', '**/**.czml')
 layer.eachOverlay(item => {
   if (item.polygline) {
     //todo
@@ -930,7 +1017,7 @@ layer.eachOverlay(item => {
 
 - **_constructor(id,url,[options])_**
 
-  DC.CzmlLayer 构造函数
+  GS.CzmlLayer 构造函数
 
   - 参数
     - `{Stiring} id`：图层唯一标识
@@ -938,14 +1025,14 @@ layer.eachOverlay(item => {
     - `{Object} options`：属性配置，详情参考：[CzmlDataSource](https://cesium.com/docs/cesiumjs-ref-doc/CzmlDataSource.html)
   - 返回值：`czmlLayer`
 
-## DC.KmlLayer
+## GS.KmlLayer
 
 > Kml 图层，继承于[Layer](#layer)，主要要来加载 Kml 数据
 
 ### example
 
 ```js
-let layer = new DC.KmlLayer('id', '**/**.kml')
+let layer = new GS.KmlLayer('id', '**/**.kml')
 layer.eachOverlay(item => {
   if (item.polygline) {
     //todo
@@ -963,7 +1050,7 @@ layer.eachOverlay(item => {
 
 - **_constructor(id,url,[options])_**
 
-  DC.KmlLayer 构造函数
+  GS.KmlLayer 构造函数
 
   - 参数
     - `{Stiring} id`：图层唯一标识
@@ -971,14 +1058,14 @@ layer.eachOverlay(item => {
     - `{Object} options`：属性配置，详情参考：[KmlDataSource](https://cesium.com/docs/cesiumjs-ref-doc/KmlDataSource.html)
   - 返回值：`kmlLayer`
 
-## DC.HtmlLayer
+## GS.HtmlLayer
 
 > Html 图层，继承于[Layer](#layer)，主要要来加载 DivIcon 节点
 
 ### example
 
 ```js
-let layer = new DC.HtmlLayer('dom')
+let layer = new GS.HtmlLayer('dom')
 viewer.addLayer(layer)
 ```
 
@@ -986,31 +1073,31 @@ viewer.addLayer(layer)
 
 - **_constructor(id)_**
 
-  DC.HtmlLayer 构造函数
+  GS.HtmlLayer 构造函数
 
   - 参数
     - `{Stiring} id`：图层唯一标识
   - 返回值：`htmlLayer`
 
-## DC.Position
+## GS.Position
 
 > 坐标类，在 3D 中坐标采用右手标准
 
 ### example
 
 ```js
-let position = new DC.Potision(120, 22, 102)
+let position = new GS.Potision(120, 22, 102)
 
-let position1 = DC.Potision.fromCoordString('120,22,102')
+let position1 = GS.Potision.fromCoordString('120,22,102')
 
-let position2 = DC.Potision.fromCoordArray([120, 22, 102])
+let position2 = GS.Potision.fromCoordArray([120, 22, 102])
 ```
 
 ### creation
 
 - **_constructor(lng,lat,alt,heaing,pitch,roll)_**
 
-  DC.Position 构造函数
+  GS.Position 构造函数
 
   - 参数
     - `{Number} lng`：经度
@@ -1056,14 +1143,14 @@ let position2 = DC.Potision.fromCoordArray([120, 22, 102])
     - `{Array<Sting|Number>} array`：坐标数组
   - 返回值：`position`
 
-## DC.Color
+## GS.Color
 
 > 颜色类
 
 ### example
 
 ```js
-let red = DC.Color.RED
+let red = GS.Color.RED
 ```
 
 ### properties
@@ -1096,12 +1183,12 @@ let red = DC.Color.RED
     - `{String} color`：Css 颜色值，如：#rgb, #rrggbb, rgb(), rgba(), hsl(), or hsla()
   - 返回值：`color`
 
-## DC.JulianDate
+## GS.JulianDate
 
 > 朱莉安日历
 
 ```js
-let date = DC.JulianDate.now()
+let date = GS.JulianDate.now()
 ```
 
 ### static methods
@@ -1120,16 +1207,16 @@ let date = DC.JulianDate.now()
     - `{Date} date`：Js 时间
   - 返回值 `date`
 
-## DC.CallbackProperty
+## GS.CallbackProperty
 
 > 回调属性，用户通过自定义，回调函数，来返回需要的值。回调函数中，用户可以使用 time 来给定 value，也可以以自己的方式给给定。
 
 ```js
-let position = new DC.Position(120, 20)
-let point = new DC.Point(position)
+let position = new GS.Position(120, 20)
+let point = new GS.Point(position)
 let size = 0
 point.setStyle({
-  pixelSize: new DC.CallbackProperty(time => {
+  pixelSize: new GS.CallbackProperty(time => {
     size += 1
     if (size == 10) {
       size = 0
@@ -1200,15 +1287,15 @@ point.setStyle({
     - `{Object} params` ：参数
   - 返回值：`this`
 
-## DC.Point
+## GS.Point
 
 > 点位要素，继承于[Overlay](#overlay)
 
 ### exmaple
 
 ```js
-let position = new DC.Position(120, 20)
-let point = new DC.Point(position)
+let position = new GS.Position(120, 20)
+let point = new GS.Point(position)
 point.setStyle({
   pixelSize: 10
 })
@@ -1218,15 +1305,15 @@ point.setStyle({
 
 - **_constructor(position)_**
 
-  DC.Point 构造函数
+  GS.Point 构造函数
 
   - 参数
-    - [`{DC.Position} position`](#dc-position)：坐标
+    - [`{GS.Position} position`](#dc-position)：坐标
   - 返回值：`point`
 
 ### properties
 
-- [`{DC.Position} position`](#dc-position)：坐标
+- [`{GS.Position} position`](#dc-position)：坐标
 
 ### methods
 
@@ -1242,8 +1329,8 @@ point.setStyle({
   // 样式参数(可选)
   {
     "pixelSize": "1", //像素大小
-    "color": DC.Color.WHITE, //颜色
-    "outlineColor": DC.Color.WHITE, //边框颜色
+    "color": GS.Color.WHITE, //颜色
+    "outlineColor": GS.Color.WHITE, //边框颜色
     "outlineWidth": 0, //边框大小，
     "scaleByDistance": {
       "near": 0, //最近距离
@@ -1265,14 +1352,14 @@ point.setStyle({
   }
   ```
 
-## DC.Polyline
+## GS.Polyline
 
 > 线要素，继承于[Overlay](#overlay)
 
 ### exmaple
 
 ```js
-let polyline = new DC.Polyline('120,20;120,30')
+let polyline = new GS.Polyline('120,20;120,30')
 polyline.setStyle({
   width: 10
 })
@@ -1282,16 +1369,16 @@ polyline.setStyle({
 
 - **_constructor(positions)_**
 
-  DC.Polyline 构造函数
+  GS.Polyline 构造函数
 
   - 参数
-    - `{String|Array<DC.Position|Number|String>} positions`：坐标串
+    - `{String|Array<GS.Position|Number|String>} positions`：坐标串
   - 返回值：`polyline`
 
 ### properties
 
-- `{String|Array<DC.Position|Number|String>} positions`：坐标串
-- `{DC.Position} center`：中心点 **_`readonly`_**
+- `{String|Array<GS.Position|Number|String>} positions`：坐标串
+- `{GS.Position} center`：中心点 **_`readonly`_**
 - `{Number} distance`：距离,单位：米 **_`readonly`_**
 
 ### methods
@@ -1308,7 +1395,7 @@ polyline.setStyle({
   // 样式参数(可选)
   {
     "width": 1, //线宽
-    "material": DC.Color.WHITE, //材质
+    "material": GS.Color.WHITE, //材质
     "clampToGround": false, //是否贴地
     "shadows": 0, //阴影类型，0：禁用、1：启用 、2：投射、3：接受
     "distanceDisplayCondition": {
@@ -1320,14 +1407,14 @@ polyline.setStyle({
   }
   ```
 
-## DC.Polygon
+## GS.Polygon
 
 > 面要素，继承于[Overlay](#overlay)
 
 ### exmaple
 
 ```js
-let polygon = new DC.Polygon('120,20;120,30;122,30')
+let polygon = new GS.Polygon('120,20;120,30;122,30')
 polygon.setStyle({
   height: 10
 })
@@ -1337,17 +1424,17 @@ polygon.setStyle({
 
 - **_constructor(positions)_**
 
-  DC.Polygon 构造函数
+  GS.Polygon 构造函数
 
   - 参数
-    - `{String|Array<DC.Position|Number|String>} positions`：坐标串
+    - `{String|Array<GS.Position|Number|String>} positions`：坐标串
   - 返回值：`polygon`
 
 ### properties
 
-- `{String|Array<DC.Position|Number|String>} positions`：坐标串
-- `{String|Array<DC.Position|Number|String>} holes`：洞坐标串
-- `{DC.Position} center`：中心点 **_`readonly`_**
+- `{String|Array<GS.Position|Number|String>} positions`：坐标串
+- `{String|Array<GS.Position|Number|String>} holes`：洞坐标串
+- `{GS.Position} center`：中心点 **_`readonly`_**
 - `{Number} area`：距离，单位：平方米 **_`readonly`_**
 
 ### methods
@@ -1366,9 +1453,9 @@ polygon.setStyle({
     "height": 1, //高度
     "extrudedHeight": 0, //拉升高度
     "stRotation": 0, //旋转角度
-    "material": DC.Color.WHITE, //材质
+    "material": GS.Color.WHITE, //材质
     "outline": false, //是否显示边框
-    "outlineColor": DC.Color.BLACK, //边框颜色
+    "outlineColor": GS.Color.BLACK, //边框颜色
     "outlineWidth": 0, //边框宽度
     "closeTop": true, //顶面是否闭合
     "closeBottom": true, //底面是否闭合
@@ -1382,15 +1469,15 @@ polygon.setStyle({
   }
   ```
 
-## DC.Billboard
+## GS.Billboard
 
 > 图标要素，继承于[Overlay](#overlay)
 
 ### exmaple
 
 ```js
-let position = new DC.Position(120, 20)
-let billboard = new DC.Billboard(position, '***/**.png')
+let position = new GS.Position(120, 20)
+let billboard = new GS.Billboard(position, '***/**.png')
 billboard.size = [20, 20]
 ```
 
@@ -1398,16 +1485,16 @@ billboard.size = [20, 20]
 
 - **_constructor(position,icon)_**
 
-  DC.Billboard 构造函数
+  GS.Billboard 构造函数
 
   - 参数
-    - `{DC.Position} position`：坐标
+    - `{GS.Position} position`：坐标
     - `{String} icon`：图标地址
   - 返回值：`billboard`
 
 ### properties
 
-- `{DC.Position} position`：坐标
+- `{GS.Position} position`：坐标
 - `{String} icon`：图标地址
 - `{Arrray<Number>} size`：图标大小
 
@@ -1419,7 +1506,7 @@ billboard.size = [20, 20]
 
   - 参数
     - `{String} text`：文本
-    - `{String} textStyle`：文本样式，详情参考：[DC.Label](#dc-label)
+    - `{String} textStyle`：文本样式，详情参考：[GS.Label](#dc-label)
   - 返回值：`this`
 
 - **_setStyle(style)_**
@@ -1450,31 +1537,31 @@ billboard.size = [20, 20]
   }
   ```
 
-## DC.Label
+## GS.Label
 
 > 标签要素，继承于[Overlay](#overlay)
 
 ### exmaple
 
 ```js
-let position = new DC.Position(120, 20)
-let Label = new DC.Label(position, 'test')
+let position = new GS.Position(120, 20)
+let Label = new GS.Label(position, 'test')
 ```
 
 ### creation
 
 - **_constructor(position,text)_**
 
-  DC.Label 构造函数
+  GS.Label 构造函数
 
   - 参数
-    - `{DC.Position} position`：坐标
+    - `{GS.Position} position`：坐标
     - `{String} text`：文本
   - 返回值：`label`
 
 ### properties
 
-- `{DC.Position} position`：坐标
+- `{GS.Position} position`：坐标
 - `{String} text`：文本
 
 ### methods
@@ -1494,10 +1581,10 @@ let Label = new DC.Label(position, 'test')
     "scale": 1, //比例
     "pixelOffset": { "x": 0, "y": 0 }, //偏移像素
     "showBackground": false, //是否显示背景
-    "backgroundColor": DC.Color.BLACK, //背景颜色
+    "backgroundColor": GS.Color.BLACK, //背景颜色
     "backgroundPadding": { "x": 0, "y": 0 }, //背景间隙
-    "fillColor": DC.Color.BLACK, //文字颜色
-    "outlineColor": DC.Color.WHITE, //边框颜色
+    "fillColor": GS.Color.BLACK, //文字颜色
+    "outlineColor": GS.Color.WHITE, //边框颜色
     "outlineWidth": 0, //边框大小，
     "scaleByDistance": {
       "near": 0, //最近距离
@@ -1519,31 +1606,31 @@ let Label = new DC.Label(position, 'test')
   }
   ```
 
-## DC.Circle
+## GS.Circle
 
 > 圆要素，继承于[Overlay](#overlay)
 
 ### exmaple
 
 ```js
-let position = new DC.Position(120, 20)
-let circle = new DC.Circle(position, 200)
+let position = new GS.Position(120, 20)
+let circle = new GS.Circle(position, 200)
 ```
 
 ### creation
 
 - **_constructor(center, radius)_**
 
-  DC.Billboard 构造函数
+  GS.Billboard 构造函数
 
   - 参数
-    - `{DC.Position} center`：坐标
+    - `{GS.Position} center`：坐标
     - `{String} radius`：半径
   - 返回值：`billboard`
 
 ### properties
 
-- `{DC.Position} center`：坐标
+- `{GS.Position} center`：坐标
 - `{String} radius`：半径
 
 ### methods
@@ -1554,7 +1641,7 @@ let circle = new DC.Circle(position, 200)
 
   - 参数
     - `{String} text`：文本
-    - `{String} textStyle`：文本样式，详情参考：[DC.Label](#dc-label)
+    - `{String} textStyle`：文本样式，详情参考：[GS.Label](#dc-label)
   - 返回值：`this`
 
 - **_setStyle(style)_**
@@ -1571,9 +1658,9 @@ let circle = new DC.Circle(position, 200)
     "height": 1, //高度
     "extrudedHeight": 0, //拉升高度
     "stRotation": 0, //旋转角度
-    "material": DC.Color.WHITE, //材质
+    "material": GS.Color.WHITE, //材质
     "outline": false, //是否显示边框
-    "outlineColor": DC.Color.BLACK, //边框颜色
+    "outlineColor": GS.Color.BLACK, //边框颜色
     "outlineWidth": 0, //边框宽度
     "shadows": 0, //阴影类型，0：禁用、1：启用 、2：投射、3：接受
     "distanceDisplayCondition": {
@@ -1585,31 +1672,31 @@ let circle = new DC.Circle(position, 200)
   }
   ```
 
-## DC.Model
+## GS.Model
 
 > 模型要素，继承于[Overlay](#overlay)
 
 ### exmaple
 
 ```js
-let position = new DC.Position(120, 20)
-let model = new DC.Model(position, '**/**.glb')
+let position = new GS.Position(120, 20)
+let model = new GS.Model(position, '**/**.glb')
 ```
 
 ### creation
 
 - **_constructor(position, modelUrl)_**
 
-  DC.Model 构造函数
+  GS.Model 构造函数
 
   - 参数
-    - `{DC.Position} position`：坐标
+    - `{GS.Position} position`：坐标
     - `{String} modelUrl`：模型地址
   - 返回值：`model`
 
 ### properties
 
-- `{DC.Position} position`：坐标
+- `{GS.Position} position`：坐标
 - `{String} modelUrl`：模型地址
 
 ### methods
@@ -1620,7 +1707,7 @@ let model = new DC.Model(position, '**/**.glb')
 
   - 参数
     - `{String} text`：文本
-    - `{String} textStyle`：文本样式，详情参考：[DC.Label](#dc-label)
+    - `{String} textStyle`：文本样式，详情参考：[GS.Label](#dc-label)
   - 返回值：`this`
 
 - **_setStyle(style)_**
@@ -1638,9 +1725,9 @@ let model = new DC.Model(position, '**/**.glb')
     "minimumPixelSize": 0, //指定模型的最小像素大小，而不考虑缩放
     "maximumScale": 0, //指定模型的最大比例
     "shadows": 0, //阴影类型，0：禁用、1：启用 、2：投射、3：接受
-    "silhouetteColor": DC.Color.RED, //轮廓颜色
+    "silhouetteColor": GS.Color.RED, //轮廓颜色
     "silhouetteSize": 0, //轮廓宽度
-    "lightColor": DC.Color.RED, //模型着色时指定灯光颜色
+    "lightColor": GS.Color.RED, //模型着色时指定灯光颜色
     "distanceDisplayCondition": {
       "near": 0, //最近距离
       "far": Number.MAX_VALUE //最远距离
@@ -1648,22 +1735,22 @@ let model = new DC.Model(position, '**/**.glb')
   }
   ```
 
-## DC.Tileset
+## GS.Tileset
 
 > 3Dtiles 模型要素，继承于[Overlay](#overlay)
 
 ### exmaple
 
 ```js
-let position = new DC.Position(120, 20)
-let tileset = new DC.Tileset('**/tileset.json')
+let position = new GS.Position(120, 20)
+let tileset = new GS.Tileset('**/tileset.json')
 ```
 
 ### creation
 
 - **_constructor(url,[options])_**
 
-  DC.Tileset 构造函数
+  GS.Tileset 构造函数
 
   - 参数
     - `{String} url`：模型地址
@@ -1685,7 +1772,7 @@ let tileset = new DC.Tileset('**/tileset.json')
   - 返回值：`this`
 
   ```js
-  let style = new DC.TilesetStyle({
+  let style = new GS.TilesetStyle({
     color: {
       conditions: [
         ['${Height} >= 100', 'color("purple", 0.5)'], //Height 为模型设置的属性
@@ -1702,7 +1789,7 @@ let tileset = new DC.Tileset('**/tileset.json')
   设置位置
 
   - 参数
-    - `{DC.Position} position`：位置
+    - `{GS.Position} position`：位置
   - 返回值：`this`
 
 - **_setHeight(height,duration)_**
@@ -1732,31 +1819,31 @@ let tileset = new DC.Tileset('**/tileset.json')
 }
 ```
 
-## DC.DivIcon
+## GS.DivIcon
 
 > DivIcon 要素，继承于[Overlay](#overlay)
 
 ### example
 
 ```js
-let position = new DC.Position(120, 20)
-let divIcon = new DC.DivIcon(position, '<div></div>')
+let position = new GS.Position(120, 20)
+let divIcon = new GS.DivIcon(position, '<div></div>')
 ```
 
 ### creation
 
 - **_constructor(position, content)_**
 
-  DC.DivIcon 构造函数
+  GS.DivIcon 构造函数
 
   - 参数
-    - `{DC.Position} position`：坐标
+    - `{GS.Position} position`：坐标
     - `{String|Element} content`：内容
   - 返回值：`divIcon`
 
 ### properties
 
-- `{DC.Position} position`：坐标
+- `{GS.Position} position`：坐标
 
 ### methods
 
@@ -1788,17 +1875,17 @@ let divIcon = new DC.DivIcon(position, '<div></div>')
   添加效果到场景
 
   - 参数
-    - `{DC.Viewer} viewer`：场景
+    - `{GS.Viewer} viewer`：场景
   - 返回值：`this`
 
-## DC.RainEffect
+## GS.RainEffect
 
 > 雨天效果，继承于[Effect](#effect)
 
 ### exmaple
 
 ```js
-let rainEffect = new DC.RainEffect('rain')
+let rainEffect = new GS.RainEffect('rain')
 viewer.addEffect(rainEffect)
 ```
 
@@ -1806,20 +1893,20 @@ viewer.addEffect(rainEffect)
 
 - **_constructor(id)_**
 
-  DC.RainEffect 构造函数
+  GS.RainEffect 构造函数
 
   - 参数
     - `{String} id`：唯一标识
   - 返回值：`rainEffect`
 
-## DC.SnowEffect
+## GS.SnowEffect
 
 > 雪天效果，继承于[Effect](#effect)
 
 ### exmaple
 
 ```js
-let snowEffect = new DC.SnowEffect('rain')
+let snowEffect = new GS.SnowEffect('rain')
 viewer.addEffect(snowEffect)
 ```
 
@@ -1827,20 +1914,20 @@ viewer.addEffect(snowEffect)
 
 - **_constructor(id)_**
 
-  DC.SnowEffect 构造函数
+  GS.SnowEffect 构造函数
 
   - 参数
     - `{String} id`：唯一标识
   - 返回值：`snowEffect`
 
-## DC.FogEffect
+## GS.FogEffect
 
 > 雾天效果，继承于[Effect](#effect)
 
 ### exmaple
 
 ```js
-let fogEffect = new DC.FogEffect('fog', DC.Color.RED)
+let fogEffect = new GS.FogEffect('fog', GS.Color.RED)
 viewer.addEffect(fogEffect)
 ```
 
@@ -1848,22 +1935,22 @@ viewer.addEffect(fogEffect)
 
 - **_constructor(id,color,trength)_**
 
-  DC.FogEffect 构造函数
+  GS.FogEffect 构造函数
 
   - 参数
     - `{String} id`：唯一标识
-    - `{DC.Color} color`：颜色
+    - `{GS.Color} color`：颜色
     - `{Number} trength`：强度
   - 返回值：`fogEffect`
 
-## DC.BloomEffect
+## GS.BloomEffect
 
 > 泛光效果，继承于[Effect](#effect)
 
 ### exmaple
 
 ```js
-let bloomEffect = new DC.BloomEffect('fog', DC.Color.RED)
+let bloomEffect = new GS.BloomEffect('fog', GS.Color.RED)
 viewer.addEffect(bloomEffect)
 ```
 
@@ -1871,7 +1958,7 @@ viewer.addEffect(bloomEffect)
 
 - **_constructor(id)_**
 
-  DC.BloomEffect 构造函数
+  GS.BloomEffect 构造函数
 
   - 参数
     - `{String} id`：唯一标识
@@ -1882,19 +1969,19 @@ viewer.addEffect(bloomEffect)
 - `{Number} contrast`：对比度 **_writeonly_**
 - `{Number} brightness`：亮度 **_writeonly_**
 
-## DC.RadarScanEffect
+## GS.RadarScanEffect
 
 > 雷达扫描效果，继承于[Effect](#effect)
 
 ### exmaple
 
 ```js
-let position = new DC.Position(120, 20)
-let radarScanEffect = new DC.RadarScanEffect(
+let position = new GS.Position(120, 20)
+let radarScanEffect = new GS.RadarScanEffect(
   'radar',
   position,
   200,
-  DC.Color.RED,
+  GS.Color.RED,
   5
 )
 viewer.addEffect(radarScanEffect)
@@ -1904,29 +1991,29 @@ viewer.addEffect(radarScanEffect)
 
 - **_constructor(id,position,radius,color,duration)_**
 
-  DC.RadarScanEffect 构造函数
+  GS.RadarScanEffect 构造函数
 
   - 参数
     - `{String} id`：唯一标识
-    - `{DC.Position} position`：位置
+    - `{GS.Position} position`：位置
     - `{Number} radius`：半径
-    - `{DC.Color} color`：颜色
+    - `{GS.Color} color`：颜色
     - `{Number} duration`：间隔，单位：秒
   - 返回值：`radarScanEffect`
 
-## DC.CicleScanEffect
+## GS.CicleScanEffect
 
 > 雷达扫描效果，继承于[Effect](#effect)
 
 ### exmaple
 
 ```js
-let position = new DC.Position(120, 20)
-let cicleScanEffect = new DC.CicleScanEffect(
+let position = new GS.Position(120, 20)
+let cicleScanEffect = new GS.CicleScanEffect(
   'circle',
   position,
   200,
-  DC.Color.RED,
+  GS.Color.RED,
   5
 )
 viewer.addEffect(cicleScanEffect)
@@ -1936,45 +2023,45 @@ viewer.addEffect(cicleScanEffect)
 
 - **_constructor(id,position,radius,color,duration)_**
 
-  DC.CicleScanEffect 构造函数
+  GS.CicleScanEffect 构造函数
 
   - 参数
     - `{String} id`：唯一标识
-    - `{DC.Position} position`：位置
+    - `{GS.Position} position`：位置
     - `{Number} radius`：半径
-    - `{DC.Color} color`：颜色
+    - `{GS.Color} color`：颜色
     - `{Number} duration`：间隔，单位：秒
   - 返回值：`cicleScanEffect`
 
-## DC.GlobeRotate
+## GS.GlobeRotate
 
 > 地球自转
 
 ### example
 
 ```js
-new DC.GlobeRotate(viewer, 5, () => {})
+new GS.GlobeRotate(viewer, 5, () => {})
 ```
 
 ### creation
 
 - **_constructor(viewer,duration,callback,context)_**
 
-  DC.GlobeRotate 构造函数
+  GS.GlobeRotate 构造函数
 
   - 参数
-    - `{DC.Viewer} viewer`：3D 场景
+    - `{GS.Viewer} viewer`：3D 场景
     - `{Number} duration`：间隔，单位：秒
     - `{Function} callback`：回调函数
     - `{Object} context`：回调上下文
   - 返回值：`globeRotate`
 
-## DC.T
+## GS.T
 
 > 坐标转换
 
 ```js
-let cartesian3 = DC.T.transformWSG84ToCartesian(new DC.Position(120, 20))
+let cartesian3 = GS.T.transformWSG84ToCartesian(new GS.Position(120, 20))
 ```
 
 ### static methods
@@ -1992,7 +2079,7 @@ let cartesian3 = DC.T.transformWSG84ToCartesian(new DC.Position(120, 20))
   84 坐标转换为世界坐标
 
   - 参数
-    - `{DC.Position} position`：84 坐标
+    - `{GS.Position} position`：84 坐标
   - 返回值：`cartesian`
 
 - **_transformWSG84ToCartographic(position)_**
@@ -2000,7 +2087,7 @@ let cartesian3 = DC.T.transformWSG84ToCartesian(new DC.Position(120, 20))
   84 坐标转换为制图坐标
 
   - 参数
-    - `{DC.Position} position`：84 坐标
+    - `{GS.Position} position`：84 坐标
   - 返回值：`cartographic`
 
 - **_transformCartesianArrayToWSG84Array(cartesianArr)_**
@@ -2008,7 +2095,7 @@ let cartesian3 = DC.T.transformWSG84ToCartesian(new DC.Position(120, 20))
   世界坐标数组转 84 坐标数组
 
   - 参数
-    - `{Array<Cartesian3>} cartesianArr`：世界坐标数组
+    - `{Array<cartesian3>} cartesianArr`：世界坐标数组
   - 返回值：`array`
 
 - **_transformWSG84ArrayToCartesianArray(WSG84Arr)_**
@@ -2016,10 +2103,55 @@ let cartesian3 = DC.T.transformWSG84ToCartesian(new DC.Position(120, 20))
   84 坐标数组转世界坐标数组
 
   - 参数
-    - `{Array<DC.Cartesian3>} WSG84Arr`：84 坐标
+    - `{Array<cartesian3>} WSG84Arr`：84 坐标
   - 返回值：`array`
 
-## DC.Util
+- **_transformWGS84ToGCJ02(lng,lat)_**
+
+  WGS84 to GCJ02
+
+  - 参数
+    - `{Number} lng`：经度
+    - `{Number} lat`：纬度
+  - 返回值：`position`
+
+- **_transformGCJ02ToWGS84(lng, lat)_**
+
+  GCJ02 to WGS84
+
+  - 参数
+    - `{Number} lng`：经度
+    - `{Number} lat`：纬度
+  - 返回值：`position`
+
+- **_transformWGS84ToBD09(lng, lat)_**
+
+  WGS84 to BD09
+
+  - 参数
+    - `{Number} lng`：经度
+    - `{Number} lat`：纬度
+  - 返回值：`position`
+
+- **_transformBD09ToWGS84(lng, lat)_**
+
+  BD09 to WGS84
+
+  - 参数
+    - `{Number} lng`：经度
+    - `{Number} lat`：纬度
+  - 返回值：`position`
+
+- **_transformBD09ToGCJ02(lng, lat)_**
+
+  BD09 to GCJ02
+
+  - 参数
+    - `{Number} lng`：经度
+    - `{Number} lat`：纬度
+  - 返回值：`position`
+
+## GS.Util
 
 > 工具类
 
@@ -2033,7 +2165,7 @@ let cartesian3 = DC.T.transformWSG84ToCartesian(new DC.Position(120, 20))
 
   属性合并
 
-## DC.DomUtil
+## GS.DomUtil
 
 > Dom 工具类
 
@@ -2065,3 +2197,44 @@ color: #e96900 !important;
 hight: 0;
 }
 </style>
+
+## GS.GaeaService
+
+> Gaea 服务类
+
+### examples
+
+```js
+GS.GaeaService.url = ''
+GS.GaeaService.getLayerTree()
+```
+
+### static methods
+
+- **_getLayerTree()_**
+
+  获取图层数
+
+- **_suggestSearch()_**
+
+  关键字搜索
+
+- **_propSearch(postData)_**
+
+  属性搜索
+
+- **_propSearchByAmap(key, searchText, nowPage, pageSize)_**
+
+  高德属性搜索
+
+- **_getBufferOp(postData)_**
+
+  缓冲
+
+- **_interSpaceSearch(postData)_**
+
+  交叉搜索
+
+- **_getFeature(postData)_**
+
+  获取要素
