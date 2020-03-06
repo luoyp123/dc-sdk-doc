@@ -6,7 +6,7 @@ sidebar: auto
 
 ## 简介
 
-> GS-Chart 是 DC-SDK 与 Echart 融合的产品。主要用于在 3D 场景中添加 echart 的统计图表。将统计图表 Gis 化
+> DC-Chart 是 DC-SDK 与 Echart 融合的产品。主要用于在 3D 场景中添加 echart 的统计图表。将统计图表 Gis 化
 
 ## 开始
 
